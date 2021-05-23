@@ -27,6 +27,11 @@
     --form-label-font-size: 1.2rem;
     --form-input-background-color: hsl(200, 100%, 31%);
     --form-input-border-color: hsl(200, 100%, 50%);
+
+    /* Books */
+    --book-cover-width: 200px;
+    --book-cover-width-large: 305px;
+    --book-cover-aspect-ratio: 0.75;
     
 }
 
@@ -181,14 +186,24 @@ body {
 }
 
 .form-item input,
-.form-item select,
-.form-item textarea {
+.form-item select {
     height: 2rem;
     padding: .25rem .5rem;
     border-radius: .25rem;
     border: 1px solid var(--form-input-border-color);
     background-color: var(--form-input-background-color);
     color: var(--color-text-light);
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Reggae One', cursive;
+    outline: none;
+}
+
+.form-item textarea {
+    border-radius: .25rem;
+    border: 1px solid var(--form-input-border-color);
+    background-color: var(--form-input-background-color);
+    color: var(--color-text-light); 
     font-size: 1rem;
     font-weight: normal;
     font-family: 'Reggae One', cursive;
@@ -214,4 +229,77 @@ body {
 .filepond--drop-label {
     color: var(--color-text-light);
     font-size: inherit;
+}
+
+
+/* Authors */
+.author-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.author-name {
+    font-size: 1.5rem;
+}
+
+/* Book */
+.book-cover{
+    width: var(--book-cover-width);
+    height: calc(var(--book-cover-width) / var(--book-cover-aspect-ratio));    
+}
+
+.book-cover-large {
+    --book-cover-width: var(--book-cover-width-large);
+}
+
+.book-grid {
+    display: grid;
+    justify-content: center;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, var(--book-cover-width));
+}
+
+.book-grid-large {
+    grid-template-columns: repeat(auto-fill, var(--book-cover-width-large));
+}
+
+.error-message {
+    color: hsl(4, 84%, 57%);;
+}
+
+.book-details {
+    display: flex;
+}
+
+.book-details-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.book-details-grid {
+    display: grid;
+    align-content: flex-start;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: auto auto;
+    padding: .5rem;
+}
+
+.book-details-btn-grid {
+    display: grid;
+    justify-items: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    grid-template-areas: 
+        "edit delete"
+        "author author";
+    grid-gap:.5rem;
+    margin-top:.5rem;
+}
+
+.book-details-author-button {
+    grid-area: author;
+    justify-self: stretch;
 }
