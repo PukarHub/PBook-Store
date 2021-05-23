@@ -26,6 +26,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 app.use(methodOverride('_method'))
 
+// Routes
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/books', bookRouter)
